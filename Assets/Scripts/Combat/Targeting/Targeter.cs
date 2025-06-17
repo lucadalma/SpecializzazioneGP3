@@ -9,9 +9,16 @@ public class Targeter : MonoBehaviour
     [SerializeField]
     private CinemachineTargetGroup cineTargetGroup;
 
+    private Camera mainCamera;
+
     private List<Target> targets = new List<Target>();
 
     public Target CurrentTarget { get; private set; }
+
+    private void Start()
+    {
+        mainCamera = Camera.main;
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -33,7 +40,31 @@ public class Targeter : MonoBehaviour
     {
         if (targets.Count == 0) return false;
 
-        CurrentTarget = targets[0];
+        Target closestTarget = null;
+
+        float closestTargetDistance = Mathf.Infinity;
+
+        foreach (Target target in targets)
+        {
+            Vector2 viewPos = mainCamera.WorldToViewportPoint(target.transform.position);
+
+            if (viewPos.x < 0 || viewPos.x > 1 || viewPos.y < 0 || viewPos.y > 1) 
+            {
+                continue;
+            }
+
+            Vector2 toCenter = viewPos - new Vector2(0.5f, 0.5f);
+            if (toCenter.sqrMagnitude < closestTargetDistance) 
+            {
+                closestTarget = target;
+                closestTargetDistance = toCenter.sqrMagnitude;
+            }
+        }
+
+        if (closestTarget == null)
+            return false;
+
+        CurrentTarget = closestTarget;
         cineTargetGroup.AddMember(CurrentTarget.transform, 1f, 2f);
 
         return true;

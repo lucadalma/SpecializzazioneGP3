@@ -11,6 +11,8 @@ public class PlayerTargetingState : PlayerBaseState
 
     private readonly int TargetingRightHash = Animator.StringToHash("TargetingRight");
 
+    private const float CrossFadeDuration = 0.1f;
+
     public PlayerTargetingState(PlayerStateMachine stateMachine) : base(stateMachine)
     {
     }
@@ -19,11 +21,17 @@ public class PlayerTargetingState : PlayerBaseState
     {
         stateMachine.InputReader.CancelEvent += OnCancel;
 
-        stateMachine.Animator.Play(TargetingBlendTreeHash);
+        stateMachine.Animator.CrossFadeInFixedTime(TargetingBlendTreeHash, CrossFadeDuration);
     }
 
     public override void Tick(float deltaTime)
     {
+        if (stateMachine.InputReader.IsAttacking) 
+        {
+            stateMachine.SwitchState(new PlayerAttackingState(stateMachine, 0));
+            return;
+        }
+
         if (stateMachine.Targeter.CurrentTarget == null)
         {
             stateMachine.SwitchState(new PlayerFreeLookState(stateMachine));

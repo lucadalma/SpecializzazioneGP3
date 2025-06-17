@@ -11,6 +11,11 @@ public abstract class PlayerBaseState : State
         this.stateMachine = stateMachine;
     }
 
+    protected void Move(float deltatime) 
+    {
+        Move(Vector3.zero, deltatime);
+    }
+
     protected void Move(Vector3 motion, float deltatime) 
     {
         stateMachine.Controller.Move((motion + stateMachine.ForceReceiver.Movement) * deltatime);

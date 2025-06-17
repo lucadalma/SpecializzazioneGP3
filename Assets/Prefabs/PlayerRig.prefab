@@ -113,8 +113,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1172345089285161023}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.04941819, y: -0.000028513015, z: 0.0000014107853, w: 0.99877816}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.04941819, y: -0.000028517417, z: 0.0000014110032, w: 0.99877816}
+  m_LocalPosition: {x: 0, y: 0, z: -0.00000047683716}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -192,7 +192,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2591609319555667068}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.1784248, y: -0.000000018826718, z: 0.000000003413935, w: 0.98395354}
+  m_LocalRotation: {x: 0.1784248, y: 0.00000001892863, z: -0.0000000034324152, w: 0.9839536}
   m_LocalPosition: {x: 0.091624774, y: -2.8710163, z: 1.5500007}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -499,8 +499,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3312705334376068749}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.06757729, y: -0.0000285041, z: 0.000001930643, w: 0.99771404}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.06757727, y: -0.000028525103, z: 0.000001933116, w: 0.99771404}
+  m_LocalPosition: {x: 0, y: 0, z: -0.00000047683716}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -800,7 +800,7 @@ Transform:
   m_GameObject: {fileID: 7166810201073328150}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -1e-45, z: -0, w: 1}
-  m_LocalPosition: {x: 0.00000015306998, y: -0.00000023841858, z: 4.2720017}
+  m_LocalPosition: {x: -0.00000015389857, y: -0.00000023841858, z: 4.2720017}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1104,8 +1104,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8023165946225165552}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.031290766, y: -0.000028520888, z: 0.00000089287767, w: 0.99951035}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.031290762, y: -0.000028557977, z: 0.00000089403864, w: 0.99951035}
+  m_LocalPosition: {x: 0, y: 0, z: -0.00000047683716}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1169,6 +1169,54 @@ PrefabInstance:
     - target: {fileID: 1324396553804096149, guid: a7413fc248763854fbe190e54bf0ed57, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 1505747430943265820, guid: a7413fc248763854fbe190e54bf0ed57, type: 3}
+      propertyPath: <Attacks>k__BackingField.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1505747430943265820, guid: a7413fc248763854fbe190e54bf0ed57, type: 3}
+      propertyPath: <Attacks>k__BackingField.Array.data[0].<AnimationName>k__BackingField
+      value: Attack1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1505747430943265820, guid: a7413fc248763854fbe190e54bf0ed57, type: 3}
+      propertyPath: <Attacks>k__BackingField.Array.data[1].<AnimationName>k__BackingField
+      value: Attack2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1505747430943265820, guid: a7413fc248763854fbe190e54bf0ed57, type: 3}
+      propertyPath: <Attacks>k__BackingField.Array.data[2].<AnimationName>k__BackingField
+      value: Attack3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1505747430943265820, guid: a7413fc248763854fbe190e54bf0ed57, type: 3}
+      propertyPath: <Attacks>k__BackingField.Array.data[0].<ComboAttackTime>k__BackingField
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1505747430943265820, guid: a7413fc248763854fbe190e54bf0ed57, type: 3}
+      propertyPath: <Attacks>k__BackingField.Array.data[0].<ComboStateIndex>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1505747430943265820, guid: a7413fc248763854fbe190e54bf0ed57, type: 3}
+      propertyPath: <Attacks>k__BackingField.Array.data[1].<ComboAttackTime>k__BackingField
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1505747430943265820, guid: a7413fc248763854fbe190e54bf0ed57, type: 3}
+      propertyPath: <Attacks>k__BackingField.Array.data[1].<ComboStateIndex>k__BackingField
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1505747430943265820, guid: a7413fc248763854fbe190e54bf0ed57, type: 3}
+      propertyPath: <Attacks>k__BackingField.Array.data[2].<ComboStateIndex>k__BackingField
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1505747430943265820, guid: a7413fc248763854fbe190e54bf0ed57, type: 3}
+      propertyPath: <Attacks>k__BackingField.Array.data[0].<TransitionDuration>k__BackingField
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1505747430943265820, guid: a7413fc248763854fbe190e54bf0ed57, type: 3}
+      propertyPath: <Attacks>k__BackingField.Array.data[1].<TransitionDuration>k__BackingField
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1505747430943265820, guid: a7413fc248763854fbe190e54bf0ed57, type: 3}
+      propertyPath: <Attacks>k__BackingField.Array.data[2].<TransitionDuration>k__BackingField
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 3356729657291452392, guid: a7413fc248763854fbe190e54bf0ed57, type: 3}
       propertyPath: cineTargetGroup
