@@ -31,9 +31,12 @@ public class EnemyStateMachine : StateMachine
 
     public Health Player { get; private set; }
 
+    public EnemyAdaptiveAI.EnemyBehaviour Strategy { get; private set; } = EnemyAdaptiveAI.EnemyBehaviour.Balanced;
 
     private void Start()
     {
+
+
         Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Health>();
 
         Agent.updatePosition = false;
@@ -61,6 +64,10 @@ public class EnemyStateMachine : StateMachine
     private void HandleDie()
     {
         SwitchState(new EnemyDeadState(this));
+    }
+    public void SetStrategy(EnemyAdaptiveAI.EnemyBehaviour newStyle)
+    {
+        Strategy = newStyle;
     }
 
     private void OnDrawGizmosSelected()

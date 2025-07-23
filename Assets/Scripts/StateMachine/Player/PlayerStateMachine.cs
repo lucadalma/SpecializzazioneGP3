@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerStateMachine : StateMachine
 {
+
+    [field: SerializeField] public PlayerActionTracker ActionTracker { get; private set; }
+
     [field: SerializeField] public InputReader InputReader { get; private set; }
 
     [field: SerializeField] public CharacterController Controller { get; private set; }
@@ -69,5 +72,6 @@ public class PlayerStateMachine : StateMachine
     {
         SwitchState(new PlayerDeadState(this));
     }
+
 
 }

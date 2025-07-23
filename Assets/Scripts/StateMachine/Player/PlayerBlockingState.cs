@@ -14,6 +14,7 @@ public class PlayerBlockingState : PlayerBaseState
     {
         stateMachine.Health.SetInvulnerable(true);
         stateMachine.Animator.CrossFadeInFixedTime(BlockHash, CrossFadeDuration);
+        stateMachine.ActionTracker?.RegisterBlock();
     }
 
 

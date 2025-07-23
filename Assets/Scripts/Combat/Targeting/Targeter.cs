@@ -90,4 +90,22 @@ public class Targeter : MonoBehaviour
         targets.Remove(target);
     }
 
+    public Target ClosestEnemy() 
+    {
+        Target closestEnemy = null;
+        float shortestDistance = Mathf.Infinity;
+        Vector3 currentPosition = gameObject.transform.position;
+
+        foreach (Target target in targets)
+        {
+            float distance = Vector3.Distance(currentPosition, target.transform.position);
+            if (distance < shortestDistance)
+            {
+                shortestDistance = distance;
+                closestEnemy = target;
+            }
+        }
+        return closestEnemy;
+    }
 }
+
