@@ -9,6 +9,7 @@ public class EnemyAttackingState : EnemyBaseState
 
     private const float TransitionDuration = 0.1f;
 
+
     public EnemyAttackingState(EnemyStateMachine stateMachine) : base(stateMachine)
     {
     }
@@ -23,12 +24,20 @@ public class EnemyAttackingState : EnemyBaseState
 
     public override void Tick(float deltaTime)
     {
-        if (GetNormalizeTime(stateMachine.Animator) >= 1) 
+
+        if (GetNormalizeTime(stateMachine.Animator) >= 1)
         {
             stateMachine.SwitchState(new EnemyChasingState(stateMachine));
         }
 
         FacePlayer();
+
+        if (stateMachine.Strategy == EnemyAdaptiveAI.EnemyBehaviour.Defensive)
+        {
+            stateMachine.SwitchState(new EnemyBlockingState(stateMachine));
+            return;
+        }
+
     }
 
     public override void Exit()

@@ -31,8 +31,16 @@ public class EnemyChasingState : EnemyBaseState
         }
         else if (IsInAttackRange())
         {
-            stateMachine.SwitchState(new EnemyAttackingState(stateMachine));
-            return;
+            if (stateMachine.Strategy == EnemyAdaptiveAI.EnemyBehaviour.Defensive)
+            {
+                stateMachine.SwitchState(new EnemyBlockingState(stateMachine));
+                return;
+            }
+            else
+            {
+                stateMachine.SwitchState(new EnemyAttackingState(stateMachine));
+                return;
+            }
         }
 
         MoveToPlayer(deltaTime);
