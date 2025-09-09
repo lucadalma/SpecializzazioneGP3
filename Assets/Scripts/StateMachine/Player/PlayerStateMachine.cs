@@ -40,6 +40,8 @@ public class PlayerStateMachine : StateMachine
 
     public Transform MainCameraTransform { get; private set; }
 
+    public bool IsBlocking { get; set; }
+
 
     private void Start()
     {

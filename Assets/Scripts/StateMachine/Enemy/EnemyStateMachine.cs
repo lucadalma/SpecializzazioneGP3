@@ -4,7 +4,13 @@ using UnityEngine;
 using UnityEngine.AI;
 
 public class EnemyStateMachine : StateMachine
-{ 
+{
+    [field: SerializeField] public float RetreatMinDistance { get; private set; } = 4f;   // se il player è più vicino di così, scappo
+    [field: SerializeField] public float RetreatMaxDistance { get; private set; } = 8f;   // obiettivo di “comfort”
+    [field: SerializeField] public float RetreatRepathInterval { get; private set; } = 0.5f; // ogni quanto ricalcolo la destinazione
+    [field: SerializeField] public float RetreatCooldown { get; private set; } = 6f;
+    public float LastRetreatTime { get; set; } = -Mathf.Infinity;
+
     [field: SerializeField] public CharacterController Controller { get; private set; }
 
     [field: SerializeField] public ForceReceiver ForceReceiver { get; private set; }

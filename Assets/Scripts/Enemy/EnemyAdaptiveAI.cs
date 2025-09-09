@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 
 public class EnemyAdaptiveAI : MonoBehaviour
 {
@@ -12,6 +12,9 @@ public class EnemyAdaptiveAI : MonoBehaviour
         Defensive
     }
 
+    [Header("Logo")]
+    [SerializeField] private List<Sprite> sprites;
+
     [Header("Tracker")]
     [SerializeField] private PlayerActionTracker playerActionTracker;
 
@@ -20,6 +23,8 @@ public class EnemyAdaptiveAI : MonoBehaviour
 
     [Header("Adattamento")]
     [SerializeField] private float adaptInterval = 5f;
+
+    [SerializeField] private Image adaptiveLogo;
 
     private float adaptTimer;
 
@@ -39,6 +44,7 @@ public class EnemyAdaptiveAI : MonoBehaviour
             adaptTimer = 0f;
             EvaluatePlayerBehavior();
         }
+
     }
 
     private void EvaluatePlayerBehavior()
@@ -52,14 +58,19 @@ public class EnemyAdaptiveAI : MonoBehaviour
         if (attackCount-blockCount >= 5)
         {
             newStyle = EnemyBehaviour.Defensive;
+            adaptiveLogo.sprite = sprites[1];
+
         }
         else if (blockCount-attackCount >= 5)
         {
             newStyle = EnemyBehaviour.Aggressive;
+            adaptiveLogo.sprite = sprites[0];
         }
         else
         {
             newStyle = EnemyBehaviour.Balanced;
+            adaptiveLogo.sprite = sprites[2];
+
         }
 
         if (newStyle != currentStyle)

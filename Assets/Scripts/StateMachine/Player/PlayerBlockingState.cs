@@ -15,6 +15,7 @@ public class PlayerBlockingState : PlayerBaseState
         stateMachine.Health.SetInvulnerable(true);
         stateMachine.Animator.CrossFadeInFixedTime(BlockHash, CrossFadeDuration);
         stateMachine.ActionTracker?.RegisterBlock();
+        stateMachine.IsBlocking = true;
     }
 
 
@@ -37,6 +38,7 @@ public class PlayerBlockingState : PlayerBaseState
     public override void Exit()
     {
         stateMachine.Health.SetInvulnerable(false);
+        stateMachine.IsBlocking = false;
     }
 
 }
