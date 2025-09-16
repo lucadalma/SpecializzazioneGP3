@@ -2,26 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Classe astratta PlayerBaseState: base per tutti gli stati del giocatore
 public abstract class PlayerBaseState : State
 {
+    //Riferimento alla macchina a stati del giocatore
     protected PlayerStateMachine stateMachine;
 
-    public PlayerBaseState(PlayerStateMachine stateMachine) 
+    //Costruttore: assegna la macchina a stati
+    public PlayerBaseState(PlayerStateMachine stateMachine)
     {
         this.stateMachine = stateMachine;
     }
 
-    protected void Move(float deltatime) 
+    //Funzione di movimento generica senza input diretto
+    protected void Move(float deltatime)
     {
         Move(Vector3.zero, deltatime);
     }
 
-    protected void Move(Vector3 motion, float deltatime) 
+    //Funzione di movimento con vettore di motion
+    protected void Move(Vector3 motion, float deltatime)
     {
+        //Applica il movimento considerando anche eventuali forze esterne
         stateMachine.Controller.Move((motion + stateMachine.ForceReceiver.Movement) * deltatime);
     }
 
-    protected void FaceTarget() 
+    //Funzione per far guardare il giocatore verso il target attuale
+    protected void FaceTarget()
     {
         if (stateMachine.Targeter.CurrentTarget == null) return;
 
@@ -31,17 +38,18 @@ public abstract class PlayerBaseState : State
         stateMachine.transform.rotation = Quaternion.LookRotation(lookPos);
     }
 
-    protected void ReturnToLocomotion() 
+    //Funzione per tornare allo stato di locomotion dopo un'azione
+    protected void ReturnToLocomotion()
     {
         if (stateMachine.Targeter.CurrentTarget != null)
         {
+            //Se c'è un target passa allo stato targeting
             stateMachine.SwitchState(new PlayerTargetingState(stateMachine));
         }
-        else 
+        else
         {
+            //Altrimenti passa allo stato free look
             stateMachine.SwitchState(new PlayerFreeLookState(stateMachine));
         }
     }
-
-
 }
