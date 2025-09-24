@@ -67,8 +67,11 @@ public class Health : MonoBehaviour
             //Chiama evento della morte
             OnDie?.Invoke();
             //Distattivo alcune cose
-            healthBar.gameObject.SetActive(false);
-            adaptiveLogo.SetActive(false);
+            if (healthBar.gameObject != null)
+                healthBar.gameObject.SetActive(false);
+            
+            if(adaptiveLogo != null)
+                adaptiveLogo.SetActive(false);
         }
     }
 

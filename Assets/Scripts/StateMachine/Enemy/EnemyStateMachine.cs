@@ -34,7 +34,7 @@ public class EnemyStateMachine : StateMachine
     public Health Player { get; private set; }
 
     //Strategia attuale del nemico (Aggressive, Defensive, Balanced)
-    public EnemyAdaptiveAI.EnemyBehaviour Strategy { get; private set; } = EnemyAdaptiveAI.EnemyBehaviour.Balanced;
+    public EnemyBehaviourSO CurrentStrategy { get; private set; }
 
     //--- Parametri di pattuglia ---
     [field: SerializeField] public Transform[] PatrolPoints { get; private set; }
@@ -87,9 +87,9 @@ public class EnemyStateMachine : StateMachine
     }
 
     //Aggiorna la strategia dell’IA adattiva
-    public void SetStrategy(EnemyAdaptiveAI.EnemyBehaviour newStyle)
+    public void SetStrategy(EnemyBehaviourSO newStrategy)
     {
-        Strategy = newStyle;
+        CurrentStrategy = newStrategy;
     }
 
     //Gizmo per visualizzare il raggio di inseguimento nel Scene View

@@ -2708,19 +2708,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1998979707216290812, guid: 883640a05ccd47d46838a36eac231d08, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.00000015389857
+      value: -0.00000015389857
       objectReference: {fileID: 0}
     - target: {fileID: 4134217307977867871, guid: 883640a05ccd47d46838a36eac231d08, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.01818951
+      value: 0.018189488
       objectReference: {fileID: 0}
     - target: {fileID: 4134217307977867871, guid: 883640a05ccd47d46838a36eac231d08, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000025629562
+      value: -0.000000008545613
       objectReference: {fileID: 0}
     - target: {fileID: 4134217307977867871, guid: 883640a05ccd47d46838a36eac231d08, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000030145204
+      value: 0.0000000010047644
       objectReference: {fileID: 0}
     - target: {fileID: 5725514397422994318, guid: 883640a05ccd47d46838a36eac231d08, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2883,6 +2883,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9156653013647894282, guid: 77a82745df5705b49a9fc7c2834f637f, type: 3}
+      propertyPath: balancedBehaviour
+      value: 
+      objectReference: {fileID: 11400000, guid: 1ae1bb2b8b2652b4db6d2121287b28f2, type: 2}
+    - target: {fileID: 9156653013647894282, guid: 77a82745df5705b49a9fc7c2834f637f, type: 3}
+      propertyPath: defensiveBehaviour
+      value: 
+      objectReference: {fileID: 11400000, guid: e10c08449dfa0084d89ce2432c547c2d, type: 2}
+    - target: {fileID: 9156653013647894282, guid: 77a82745df5705b49a9fc7c2834f637f, type: 3}
+      propertyPath: aggressiveBehaviour
+      value: 
+      objectReference: {fileID: 11400000, guid: 1c8d73d358aeae14d99901ddc7bf952f, type: 2}
     - target: {fileID: 9156653013647894282, guid: 77a82745df5705b49a9fc7c2834f637f, type: 3}
       propertyPath: playerActionTracker
       value: 

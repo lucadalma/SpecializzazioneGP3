@@ -20,28 +20,12 @@ public class EnemyAttackingState : EnemyBaseState
     public override void Enter()
     {
         //Probabilità per blocco e attacco imparabile
-        float blockChance = 0f;
-        float superAttackChance = 0f;
-
-        //Imposta le probabilità in base allo stile adattivo del nemico
-        switch (stateMachine.Strategy)
-        {
-            case EnemyAdaptiveAI.EnemyBehaviour.Defensive:
-                blockChance = 0.7f;
-                superAttackChance = 0.3f;
-                break;
-            case EnemyAdaptiveAI.EnemyBehaviour.Balanced:
-                blockChance = 0.5f;
-                superAttackChance = 0.3f;
-                break;
-            case EnemyAdaptiveAI.EnemyBehaviour.Aggressive:
-                blockChance = 0.3f;
-                superAttackChance = 0.6f;
-                break;
-        }
+        float blockChance = stateMachine.CurrentStrategy.blockChance;
+        float superAttackChance = stateMachine.CurrentStrategy.superAttackChance;
 
         //Valore casuale tra 0 e 1
         float randomValue = Random.value;
+        Debug.Log(randomValue);
 
         //Se il valore casuale è inferiore alla probabilità di blocco passa allo stato di blocco
         if (randomValue < blockChance)
