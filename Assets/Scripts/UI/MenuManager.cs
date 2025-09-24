@@ -58,7 +58,7 @@ public class MenuManager : MonoBehaviour
     private void Update()
     {
         // Se il gioco non è finito
-        if (!endGameCanvas)
+        if (endGameCanvas.activeSelf == false)
         {
             // Controlla input tasto ESC per pausa
             if (Input.GetKeyDown(KeyCode.Escape))
